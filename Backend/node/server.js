@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
+const cors = require('cors'); // Require the CORS module
 const app = express();
 const connection = mysql.createConnection({
   host: 'localhost', // Replace with your MySQL host
@@ -18,6 +19,7 @@ connection.connect((err) => {
 });
 
 app.use(express.json()); // Add this line to parse the request body as JSON
+app.use(cors()); // Enable CORS for all routes
 
 app.post('/contacts', (req, res) => {
   const { name, email, phone } = req.body;
