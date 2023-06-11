@@ -22,6 +22,7 @@ app.use(express.json()); // Add this line to parse the request body as JSON
 app.use(cors()); // Enable CORS for all routes
 
 app.post('/contacts', (req, res) => {
+  console.log(`${getTimeStamp()} POST /contacts`);
   const { name, email, phone } = req.body;
   const query = 'INSERT INTO contacts (name, email, phone) VALUES (?, ?, ?)';
   connection.query(query, [name, email, phone], (err, results) => {
@@ -35,6 +36,7 @@ app.post('/contacts', (req, res) => {
 });
 
 app.get('/contacts', (req, res) => {
+  console.log(`${getTimeStamp()} GET /contacts`);
   const query = 'SELECT * FROM contacts';
   connection.query(query, (err, results) => {
     if (err) {
@@ -47,6 +49,7 @@ app.get('/contacts', (req, res) => {
 });
 
 app.put('/contacts/:id', (req, res) => {
+  console.log(`${getTimeStamp()} PUT /contacts/:id`);
   const { id } = req.params;
   const { name, email, phone } = req.body;
   const query = 'UPDATE contacts SET name = ?, email = ?, phone = ? WHERE id = ?';
@@ -61,6 +64,7 @@ app.put('/contacts/:id', (req, res) => {
 });
 
 app.delete('/contacts/:id', (req, res) => {
+  console.log(`${getTimeStamp()} DELETE /contacts/:id`);
   const { id } = req.params;
   const query = 'DELETE FROM contacts WHERE id = ?';
   connection.query(query, [id], (err, results) => {
@@ -77,3 +81,15 @@ const port = 3000; // Replace with your desired port number
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+function getTimeStamp() {
+  const currentDate = new Date();
+  return currentDate.toISOString();
+}
+
+
+
+
+
+
+
