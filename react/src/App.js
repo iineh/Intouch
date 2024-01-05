@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://20.22.235.69:3000'
+  baseURL: 'http://intouch-node-app-1:3000'
 });
 
 function App() {
