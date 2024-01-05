@@ -4,7 +4,7 @@ const cors = require('cors'); // Require the CORS module
 const app = express();
 const connection = mysql.createConnection({
 //  host: 'localhost', // Replace with your MySQL host
-  host: 'mysql-container', // MySQL container name
+  host: 'intouch-mysql-container-1', // MySQL container name
   port: 3306,
   user: 'LU001intouch_user', // Replace with your MySQL username
   password: 'iseveShare4rce.', // Replace with your MySQL password
