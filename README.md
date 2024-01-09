@@ -48,3 +48,4 @@ For more information, please contact [Project Maintainer's Email].
 ---
 
 *This README is up-to-date as of [Date]. Please refer to the individual component directories for more detailed information.*
+.
